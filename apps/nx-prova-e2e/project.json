@@ -1,0 +1,28 @@
+{
+  "root": "apps/nx-prova-e2e",
+  "sourceRoot": "apps/nx-prova-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/nx-prova-e2e/cypress.json",
+        "devServerTarget": "nx-prova:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "nx-prova:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-prova-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["nx-prova"]
+}
